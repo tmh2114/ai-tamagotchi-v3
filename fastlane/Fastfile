@@ -1,0 +1,49 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Run tests"
+  lane :test do
+    run_tests(
+      workspace: "AITamagotchi.xcworkspace",
+      scheme: "AITamagotchi",
+      devices: ["iPhone 15 Pro"],
+      clean: true
+    )
+  end
+
+  desc "Build for TestFlight"
+  lane :beta do
+    build_app(
+      workspace: "AITamagotchi.xcworkspace",
+      scheme: "AITamagotchi",
+      export_method: "app-store",
+      export_options: {
+        provisioningProfiles: {
+          "com.yourcompany.aitamagotchi" => "AITamagotchi AppStore"
+        }
+      }
+    )
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true
+    )
+  end
+
+  desc "Deploy to App Store"
+  lane :release do
+    build_app(
+      workspace: "AITamagotchi.xcworkspace",
+      scheme: "AITamagotchi",
+      export_method: "app-store"
+    )
+    upload_to_app_store(
+      skip_metadata: false,
+      skip_screenshots: false
+    )
+  end
+
+  desc "Create screenshots"
+  lane :screenshots do
+    capture_screenshots
+    frame_screenshots(white: true)
+  end
+end
