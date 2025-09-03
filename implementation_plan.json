@@ -1,0 +1,185 @@
+{
+  "tasks": [
+    {
+      "id": "dev-1",
+      "title": "Create AITamagotchi/Models/CoreMLManager.swift",
+      "description": "Create manager for on-device AI using Core ML. Initialize with model loading, implement methods: loadModel(), generateResponse(prompt: String, context: PetContext), analyzeUserBehavior(interactions: [Interaction])",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-2",
+      "title": "Create AITamagotchi/Models/PetPersonality.swift",
+      "description": "Create personality system with traits: curiosity (0-100), affection (0-100), independence (0-100), playfulness (0-100), loyalty (0-100). Include methods: evolvePersonality(based on: UserInteraction), getPersonalityProfile() -> PersonalityProfile",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-3",
+      "title": "Create AITamagotchi/Models/RelationshipManager.swift",
+      "description": "Build relationship tracking: trustLevel (0-100), bondStrength (0-100), sharedMemories: [Memory], interactionHistory: [Interaction]. Methods: updateRelationship(interaction:), getRelationshipStatus(), createMemory(event:)",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-4",
+      "title": "Create AITamagotchi/Models/ContextMemory.swift",
+      "description": "Implement persistent context storage using Core Data: Entity for Memories (id, content, emotion, timestamp, importance), Entity for UserPreferences, Entity for InteractionPatterns. Include migration support",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-5",
+      "title": "Create AITamagotchi Watch App/WatchTamagotchiApp.swift",
+      "description": "Initialize WatchOS app with WKApplication delegate, configure watch connectivity session, set up background tasks for pet status updates, implement complication data provider",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-6",
+      "title": "Create AITamagotchi/Services/WatchConnectivityManager.swift",
+      "description": "Implement WCSession for iPhone-Watch communication: sendPetStatus(), receiveCareAction(), syncPersonalityData(), handleQuickInteractions(). Use transferUserInfo for background updates",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-7",
+      "title": "Create AITamagotchi Watch App/Views/WatchContentView.swift",
+      "description": "Main watch interface: compact pet status display, Digital Crown for mood selection, quick action buttons (feed, play, pet), haptic feedback integration, simplified animation system",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-8",
+      "title": "Create AITamagotchi Watch App/ComplicationController.swift",
+      "description": "Watch face complications: current mood emoji display, health/hunger indicators, last interaction time, quick launch to specific actions. Support multiple complication families",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-9",
+      "title": "Create AITamagotchi/AI/LocalLLMWrapper.swift",
+      "description": "Wrapper for local LLM (using MLX or Core ML): model initialization with quantization, token generation with temperature control, context window management (2048 tokens), response streaming support",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-10",
+      "title": "Create AITamagotchi/AI/PersonalityEngine.swift",
+      "description": "AI personality generation: trait-based prompt engineering, mood-influenced response modulation, learning from user feedback (reinforcement), personality evolution algorithms",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-11",
+      "title": "Modify AITamagotchi/TamagotchiViewModel.swift",
+      "description": "Integrate new AI systems: add personalityManager property, connect to CoreMLManager for responses, implement personality evolution triggers, add watch sync methods, enhance mood system with personality influence",
+      "type": "modify_file",
+      "depends_on": ["dev-1", "dev-2", "dev-3", "dev-9", "dev-10"]
+    },
+    {
+      "id": "dev-12",
+      "title": "Create AITamagotchi/Views/PersonalityView.swift",
+      "description": "UI for personality traits: radar chart for trait visualization, personality history timeline, trait descriptions and tips, evolution milestones display",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-13",
+      "title": "Create AITamagotchi/Views/MemoriesView.swift",
+      "description": "Display shared memories: chronological memory list, memory importance indicators, emotion tags for each memory, search and filter capabilities, memory deletion with confirmation",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-14",
+      "title": "Create AITamagotchi/Animations/PetAnimations.swift",
+      "description": "Advanced pet animations: idle breathing animation, mood-based expressions (20+ states), interaction responses (petting, feeding), personality-influenced behaviors, smooth transitions between states",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-15",
+      "title": "Create AITamagotchi/GameCenter/AchievementManager.swift",
+      "description": "GameKit integration: authenticate player, track achievements (50+ achievements), implement leaderboards (age, care score), social features (visit friends' pets), cloud save sync",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-16",
+      "title": "Create AITamagotchi/AR/ARPetView.swift",
+      "description": "ARKit integration: 3D pet model rendering, real-world surface detection, gesture-based interactions, photo mode with pet, AR mini-games (catch, hide-and-seek)",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-17",
+      "title": "Create AITamagotchi/Services/HealthKitManager.swift",
+      "description": "HealthKit integration: read user activity data, pet health tied to user activity, motivation messages based on health, activity-based rewards, privacy-focused data handling",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-18",
+      "title": "Create AITamagotchi/Audio/SoundManager.swift",
+      "description": "Audio system: ambient pet sounds, mood-based sound effects, voice synthesis for pet speech, background music system, user preference controls",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-19",
+      "title": "Create AITamagotchi/Analytics/UsageAnalytics.swift",
+      "description": "Privacy-focused analytics: local interaction pattern analysis, care quality scoring, personality evolution tracking, feature usage statistics, no external data transmission",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-20",
+      "title": "Create AITamagotchi/Widgets/TamagotchiWidget.swift",
+      "description": "iOS widgets: small/medium/large size variants, pet status at a glance, quick action buttons, timeline for stat predictions, widget configuration options",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-21",
+      "title": "Create AITamagotchiTests/PersonalityTests.swift",
+      "description": "Unit tests for personality system: trait evolution tests, personality consistency checks, edge case handling, performance benchmarks for AI inference",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-22",
+      "title": "Create AITamagotchiTests/WatchConnectivityTests.swift",
+      "description": "Test watch communication: message delivery verification, data sync integrity, connection failure handling, background transfer tests",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-23",
+      "title": "Create AITamagotchi/Models/PetEvolution.swift",
+      "description": "Evolution system: growth stages (baby, child, teen, adult), visual transformations based on care, personality-influenced evolution paths, rare evolution conditions, evolution animations",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-24",
+      "title": "Create AITamagotchi/Store/IAPManager.swift",
+      "description": "In-app purchases: cosmetic items (accessories, backgrounds), special food items, mini-game packs, ad removal option, restore purchases functionality",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-25",
+      "title": "Create AITamagotchi/Social/ShareManager.swift",
+      "description": "Social features: share pet photos/videos, export pet stats card, social media integration, pet visiting system (via QR codes), gift sending between friends",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-26",
+      "title": "Create AITamagotchi/Onboarding/OnboardingFlow.swift",
+      "description": "First-time user experience: pet creation wizard, personality quiz for initial traits, tutorial system, permission requests (notifications, health), welcome gift system",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-27",
+      "title": "Create AITamagotchi/Models/CoreMLModel.mlmodel",
+      "description": "Convert and optimize small language model (Phi-3 mini or similar) for Core ML: 4-bit quantization for size reduction, optimize for Neural Engine, implement token generation, ensure <500MB model size",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-28",
+      "title": "Create AITamagotchi/Database/CoreDataStack.swift",
+      "description": "Core Data setup: persistent container configuration, migration manager for schema updates, background context for heavy operations, CloudKit sync setup, data export/import functionality",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-29",
+      "title": "Create AITamagotchi/Localization/Localizable.strings",
+      "description": "Multi-language support: English base localization, Spanish translation, Japanese translation (for authenticity), French translation, German translation",
+      "type": "create_file"
+    },
+    {
+      "id": "dev-30",
+      "title": "Create AITamagotchi/Security/KeychainManager.swift",
+      "description": "Secure data storage: API keys management, user credentials, purchase receipts, encrypted pet backup, biometric authentication support",
+      "type": "create_file"
+    }
+  ]
+}
